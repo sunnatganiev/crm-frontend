@@ -28,7 +28,6 @@
 .d-block {
   width: 100% !important;
   display: block !important;
-  // color: #fff !important;
 }
 
 .add-new-ticket {
@@ -37,4 +36,23 @@
   max-width: 55rem;
   margin: 0 auto;
   border-radius: 1rem;
+}
+
+.message-history {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .message {
+    padding: 1rem;
+    width: 80%;
+    border: 1px solid #eee;
+    border-radius: 1rem;
+  }
 }
