@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from 'prop-types'
 import { Table } from "react-bootstrap";
 
 const TicketTable = ({ tickets }) => {
@@ -25,5 +26,7 @@ const TicketTable = ({ tickets }) => {
     </Table>
   );
 };
-
+TicketTable.propTypes = {
+  tickets: PropTypes.array.isRequired
+}
 export default TicketTable;
