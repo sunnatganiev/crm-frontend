@@ -3,14 +3,18 @@ import PageBreadcrumb from "../../components/breadcrumb/Breadcrumb"
 import tickets from '../../assets/data/dummy-tickets.json'
 import MessageHistory from "../../components/message-history/MessageHistory.comp"
 import UpdateTicket from "../../components/update-ticket/UpdateTicket.comp"
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
-const ticket = tickets[0]
 const Ticket = () => {
-    const [message, setMessage] = useState('')
+    const { tId } = useParams()
 
-    useEffect(() => { }, [message])
+    const [message, setMessage] = useState('')
+    const [ticket, setTicket] = useState('')
+
+    useEffect(() => {
+        setTicket(tickets.find(tick => tick.id === +tId))
+    }, [message, tId])
 
     const handleOnChange = e => {
         setMessage(e.target.value)
@@ -21,6 +25,7 @@ const Ticket = () => {
     }
 
     return (
+
         <Container>
             <Row>
                 <Col>
@@ -39,7 +44,7 @@ const Ticket = () => {
             </Row>
             <Row className="mt-5">
                 <Col>
-                    <MessageHistory msg={ticket.history} />
+                    {ticket.history && <MessageHistory msg={ticket.history} />}
                 </Col>
             </Row>
             <hr />

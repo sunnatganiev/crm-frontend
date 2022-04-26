@@ -4,6 +4,7 @@ import PageBreadcrumb from '../../components/breadcrumb/Breadcrumb'
 import SearchForm from '../../components/search-form/SearchForm.comp'
 import TicketTable from '../../components/ticket-table/TicketTable.comp'
 import tickets from '../../assets/data/dummy-tickets.json'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const TicketLists = () => {
 
@@ -34,7 +35,9 @@ const TicketLists = () => {
             </Row>
             <Row className='mt-4'>
                 <Col>
-                    <Button variant='info' className='text-light'>Add New Ticket</Button>
+                    <LinkContainer to="/add-ticket">
+                        <Button variant='info' className='text-light'>Add New Ticket</Button>
+                    </LinkContainer>
                 </Col>
                 <Col className='text-right'>
                     <SearchForm

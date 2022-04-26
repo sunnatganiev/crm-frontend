@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types'
 const MessageHistory = ({ msg }) => {
+
     return msg ?
         msg.map((row, i) => <div className='message-history mt-4' key={i}>
             <div className="send font-weight-bold text-secondary">
